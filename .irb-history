@@ -1,0 +1,30 @@
+Post.all
+Userhashrel.where("user_id = ?", 1)
+POsthashrel.all.select(|X| x.post_id==1)
+Posthashrel.all.select(|X| x.post_id==1)
+Posthashrel.all.select(|x| x.post_id==1)
+Posthashrel.all(:select => :post_id)
+Posthashrel.all(:select => :post_id).collect(&:post_id)
+User.all(:select => :id).collect(&:id)
+Post.select(:id)
+Posthashrel.select(:post_id => 18)
+Posthashrel.select(:post_id => :18)
+Posthashrel.select(:post_id)
+Posthashrel.find(:all, :select=>'campushash_id').map(&:campushash_id)
+Posthashrel.find(:all, :campushash_id=>'10').map(&:10)
+Posthashrel.find(:all, :campushash_id=>'11').map(&:'11')
+Posthashrel.find(:all, :campushash_id=>11).map(&:11)
+Posthashrel.find(:all, :campushash_id=>'10').map(&:'10')
+Posthashrel.all
+Posthashrel.find(:all, :campushash_id=>11).map(&11)
+User.pluck(:id)
+Posthashrel.pluck(:post_id)
+Posthashrel.where("campushash_id = ?", 11).pluck(:post_id)
+Campushash.find(28)
+Campushash.all
+Campushash.size
+Campushash.all.size
+Campushash.find_by_value(:#KOICA)
+Campushash.find(25)
+([3,2]&[2,1]).size
+exit

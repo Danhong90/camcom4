@@ -1,0 +1,5 @@
+<% @posts.each do |post| %>
+<h5><%= post.post_company %> // <%= post.post_subject %> // <%= post.post_deadline %><a href="/brown/post_list/<%=post.id%>"><button type=submit name=post.id value="<%=post.id%>" onclick="return confirm('Are you sure?')">삭제</button></a>  </h5>
+<hr>
+
+<% end %>

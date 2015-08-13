@@ -1,0 +1,71 @@
+
+
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  
+  
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">LOG IN</h4>
+      </div>
+      <div class="modal-body" style="width:70%; border-right:1px solid #e5e5e5; display:inline-block;">
+        
+          <!--<form action=/wall/login method=post id=loginform>-->
+          <%= form_for(:user, :url => session_path(:user),:html => { :id => "user_login" })  do |f|  %>
+
+              <div class="form-group">
+                <!--<label for="recipient-name" class="control-label">ID</label>-->
+                 <%= f.label :email, :class => 'control-label' %> <br> 
+                <!--<input name=id type="text" class="form-control" id="recipient-name" max="20" required>-->
+                <%= f.email_field :email, :class =>'form-control', :id => 'recipient-name', autofocus: true %>
+              </div>
+              <div class="form-group">
+                <!--<label for="message-text" class="control-label">PASSWORD</label>-->
+                <%= f.label :password, :class =>'control-form' %><br>
+    
+                 <!--<input name=password type="password" class="form-control" id="recipient-name" max="20" required>-->
+                <%= f.password_field :password, :class =>'form-control', :id => 'recipient-name', autocomplete: "off" %>
+              </div>
+          <!--</form> -->
+          
+         
+          
+          <div class="modal-footer" style="clear:both;">
+           
+            <%= button_tag(type: 'submit', class: "btn btn-primary", form: "user_login") do %>
+               <i class="icon-ok icon-white"></i> Login
+            <% end %>
+            
+            <% end %>
+            <!--<button type="submit" form=loginform class="btn btn-primary" style=float:right; >LOG IN</button>-->
+            <%if flash[:alert] %>
+              <!--<span style="font-size:17px; vertical-align:middle;"><strong><%= flash[:alert] %></strong></span>-->
+            <% end %>
+            <span style="text-align:left; float:left;"><a data-toggle="modal" data-target="#signin" class="btn btn-primary" >Sign in</a></span>
+           
+          </div>
+         
+      </div>
+      <div class="modal-body" style="width:29%; height: 60%; position:absolute; display:inline-block;">
+        <div style="margin-top:35%;">
+          <h5 style="font-weight:600; text-align:center;">페이스북으로<br> 로그인할 수 있습니다 <br><br>
+          <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+          <fb:button scope="public_profile,email" onlogin="checkLoginState();">
+          </fb:login-button>
+          </h5>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<script>
+if (window.location.hash == "#login") {
+     $('#login').modal('show');
+}
+
+
+</script>
+
+<!--login end-->

@@ -1,0 +1,75 @@
+<!--탑 네비게이션 -->
+<%= render :partial => "/brown/top_nav" %>
+
+<style>
+div.modal-backdrop.in {
+  z-index:-1;
+ height:100%!important;   
+}
+</style>
+
+
+
+<!-- login modal content-->
+<%= render partial: "/brown/login_modal"%>
+
+
+<!--login end-->
+<!--바디-->
+<div id="whole-body">
+    <div id= "whole-body-contents" style="min-height:800px">
+        <!--타이틀/설명?-->
+        <div>
+            
+        </div>
+        <!--해시태그 추가제거하는곳-->
+        <div id="hash_input" class="container-fluid" style="padding-top:2%;">
+            <div class="row">
+                <div class="col-md-4 col-xs-12" style="min-height:400px"> 
+                    <div class="col-xs-12 fruit-selected">
+                        <h4 class="font-yellow">당신이 선택한 #망고</h4>
+                        
+                        <p>망고로 선택한 해시태그는 새로운 컨탠츠 등록시 메일로 알려드립니다. </p>
+                        
+                        <div class="fruit-seleted-hash">
+                            <% @usermango %>
+                            <% @usermango.each do |x| %>
+                            <a class="hash-button-small-mango" id="selected"> #<%= Campushash.find(x).hash_content %>  </a>
+                            <% end %>
+                        </div>
+                        
+                    </div>
+                    <div class="col-xs-12 fruit-selected" >
+                        
+                        <h4 class="font-green">당신이 선택한 #멜론</h4>
+                        <p>푸시 알림까지는 아니지만 들어오면 한눈에 모아보고 싶은 해시태그들입니다.</p>
+                        
+                        <div class="fruit-selected-hash">
+                            <% @usermelon %>
+                            <% @usermelon.each do |x| %>
+                            <a class="hash-button-small-melon" id="selected"> #<%= Campushash.find(x).hash_content %>  </a>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-8 col-xs-12" >
+                     <div class="col-xs-12 fruit-select">
+                         <h4> 새로운 해시태그 추가하기! </h4>
+                         <h1> 아 ... 여기 어떻게 하지...</h1>
+                         <h1> 아마도 여기에 폼 하나 </h1>
+                         <h1> 카테고로 / 기업 / 인턴 / 공모전 / 대외활동 / 학회 / 동아리 / </h1>
+                         <h1> 여기엔 검색 결과 해시태그들  </h1>
+                         
+                     </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        
+    </div> <!--whole-body-contents 끝-->
+</div> <!--whole-body 끝 -->
+
+<!--fotter-->
+<%= render :partial => "/brown/footer" %>
